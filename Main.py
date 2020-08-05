@@ -32,15 +32,43 @@ edges = (
     (5, 7)
 )
 
+# Defines surfaces from vertices in a list
+surfaces = (
+    (0, 1, 2, 3),
+    (3, 2, 7, 6),
+    (6, 7, 5, 4),
+    (4, 5, 1, 0),
+    (1, 5, 7, 2),
+    (4, 0, 3, 6),
+)
+
+# Defines a list of color codes
+colors = (
+    (1, 0, 0),
+    (0, 1, 0),
+    (0, 0, 1),
+    (0, 0, 0),
+    (1, 1, 1),
+    (0, 1, 1),
+    (1, 0, 0),
+    (0, 1, 0),
+    (0, 0, 1),
+    (0, 0, 0),
+    (1, 1, 1),
+    (0, 1, 1)
+)
+
 
 # Defines the basic cube object
 def Cube():
-    glBegin(GL_LINES)  # OpenGL begin with OpenGL Lines
-    # Connects vertices into edges
-    for edge in edges:
-        for vertex in edge:
+    glBegin(GL_QUADS)
+    for surface in surfaces:
+        x = 0
+        for vertex in surface:
+            x += 1
+            glColor3fv(colors[x])
             glVertex3fv(vertices[vertex])
-    glEnd()  # OpenGL End
+    glEnd()
 
 
 def main():  # Defines the main function
