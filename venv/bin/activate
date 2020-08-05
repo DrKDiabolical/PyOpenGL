@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/danieldownes/PycharmProjects/PyOpenGL/venv"
+VIRTUAL_ENV="/home/danieldownes/PycharmProjects/PyOpenGL_Study/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

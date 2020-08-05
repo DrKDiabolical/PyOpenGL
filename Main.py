@@ -89,7 +89,25 @@ def main():  # Defines the main function
                 pygame.quit()
                 quit()
 
-        glRotatef(1, 3, 1, 1)  # Rotates the cube each frame
+            # Translates object when a keydown event is called
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    glTranslatef(-0.5, 0, 0)
+                if event.key == pygame.K_RIGHT:
+                    glTranslatef(0.5, 0, 0)
+                if event.key == pygame.K_UP:
+                    glTranslatef(0, 0.5, 0)
+                if event.key == pygame.K_DOWN:
+                    glTranslatef(0, -0.5, 0)
+
+            # Translates object when a mousewheel event is called
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 4:
+                    glTranslatef(0, 0, 0.5)
+                if event.button == 5:
+                    glTranslatef(0, 0, -0.5)
+
+        #glRotatef(1, 3, 1, 1)  # Rotates the cube each frame
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)  # Clears the buffer
         Cube()  # Initializes Cube
         pygame.display.flip()  # Updates pygame display buffer
